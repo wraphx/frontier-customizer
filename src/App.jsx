@@ -9,10 +9,11 @@ import { Canvas } from "@react-three/fiber"
 export default function App() {
 
   return (
-
+<>
+<Loader />  
     <CustomizationProvider>
       <div className="App">  
-      <Loader />   
+       
         <Canvas shadows camera={{ position: [0, 0, 20], fov:40 }}>
           <color attach="background" args={['grey']} />
           <Suspense fallback={null}>
@@ -55,7 +56,7 @@ export default function App() {
       </div>
 
     </CustomizationProvider>
-
+    </>
   )
 }
 
