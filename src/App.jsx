@@ -1,6 +1,6 @@
 import React from 'react'
 import { Suspense } from "react";
-import {Loader, ContactShadows, Environment, Lightformer, OrbitControls } from "@react-three/drei"
+import {Loader, ContactShadows, Environment, Lightformer, OrbitControls, Preload } from "@react-three/drei"
 import { Frontier } from "./vehicles/Frontier";
 import { CustomizationProvider } from "./context/Customization"
 import Configurator from "./components/Configurator";
@@ -10,7 +10,7 @@ export default function App() {
 
   return (
 <>
-<Loader />  
+
     <CustomizationProvider>
       <div className="App">  
        
@@ -18,6 +18,7 @@ export default function App() {
           <color attach="background" args={['grey']} />
           <Suspense fallback={null}>
           <Frontier scale={1.7} position={[0, -1.1, 0]} />
+          <Preload all />
           </Suspense>
           <hemisphereLight intensity={0.5} />
           <ContactShadows resolution={1024} frames={1} position={[0, -1.16, 0]} scale={15} blur={0.5} opacity={0.5} far={20} />
@@ -52,6 +53,7 @@ export default function App() {
           {/* <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={true} enablePan={false} /> */}
           <OrbitControls    enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.8} maxPolarAngle={Math.PI / 2.8} />
         </Canvas>
+        <Loader />
         <Configurator />
       </div>
 

@@ -5,7 +5,7 @@ Command: npx gltfjsx@6.2.16 public/models/Frontier.glb
 import React, { useRef } from 'react'
 import { useSnapshot } from "valtio"
 
-import { useGLTF } from '@react-three/drei'
+import { Preload, useGLTF } from '@react-three/drei'
 import { useCustomization } from '../context/Customization';
 import { state } from '../components/ColorPicker';
 
@@ -61,7 +61,9 @@ console.log()
       }
     }
   }
+  <Preload all />
   return (
+    
     <group {...props} dispose={null}>
       <group position={[-0.023, 1.975, 1.101]} scale={1.495}>
         <mesh geometry={nodes.body_12_pivot.geometry} material={materials.body} position={[0, 0, 0.003]} />
@@ -286,4 +288,5 @@ console.log()
   )
 }
 
-useGLTF.preload('/models/Frontier.glb')
+// useGLTF.preload('/models/Frontier.glb')
+
