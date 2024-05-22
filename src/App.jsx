@@ -1,18 +1,18 @@
-import { Suspense, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber"
-import { Loader, ContactShadows, Environment, Lightformer, OrbitControls } from "@react-three/drei"
-
+import React from 'react'
+import { Suspense } from "react";
+import {Loader, ContactShadows, Environment, Lightformer, OrbitControls } from "@react-three/drei"
+import { Frontier } from "./vehicles/Frontier";
 import { CustomizationProvider } from "./context/Customization"
 import Configurator from "./components/Configurator";
-import { Frontier } from "./vehicles/Frontier";
+import { Canvas } from "@react-three/fiber"
 
 export default function App() {
 
   return (
 
     <CustomizationProvider>
-      <div className="App">
-      {/* <Loader /> */}
+      <div className="App">  
+      <Loader />   
         <Canvas shadows camera={{ position: [0, 0, 20], fov:40 }}>
           <color attach="background" args={['grey']} />
           <Suspense fallback={null}>
