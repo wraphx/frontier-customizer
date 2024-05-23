@@ -288,5 +288,5 @@ console.log()
   )
 }
 
-// useGLTF.preload('/models/Frontier.glb')
+useGLTF.preload('/models/Frontier.glb')
 
